@@ -9,5 +9,6 @@ describe "When a user visits '/stations/new', enters station info, and clicks su
     click_button 'Create'
 
     expect(Station.count).to eq(1)
+    expect(Station.first.dock_count).to eq(35)
   end
 end
