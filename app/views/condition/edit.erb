@@ -1,15 +1,46 @@
-<form action="/conditions/<%= @condition.id %>" method="post">
-  <h1>Edit</h1>
-  <input type="hidden" name="_method" value="PUT" />
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "/new.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
 
-  <p>Date: <input type='date' name='condition[date]' value="<%= @condition.date %>"/></p>
-  <p>Max Temperature: <input type='float' name='condition[max_temperature_f]' value="<%= @condition.max_temperature_f %>"/></p>
-  <p>Min Temperature: <input type='float' name='condition[min_temperature_f]' value="<%= @condition.min_temperature_f %>"/></p>
-  <p>Mean Temperature: <input type='float' name='condition[mean_temperature_f]' value="<%= @condition.mean_temperature_f %>"/></p>
-  <p>Mean Humidity: <input type='float' name='condition[mean_humidity]' value="<%= @condition.mean_humidity %>"/></p>
-  <p>Mean Visibility: <input type='float' name='condition[mean_visibility_miles]' value="<%= @condition.mean_visibility_miles %>"/></p>
-  <p>Mean Wind Speed: <input type='float' name='condition[mean_wind_speed_mph]' value="<%= @condition.mean_wind_speed_mph %>"/></p>
-  <p>Precipitation: <input type='float' name='condition[precipitation_inches]' value="<%= @condition.precipitation_inches %>"/></p>
+  <body class = "edit-page">
+    <div class = "firstline">
+      <h1 class = "firstline-title">Edit Condition</h1>
+      <div class="dropdown">
+        <button class="dropbtn">More</button>
+        <div class="dropdown-content">
+          <a href="/">Home</a>
+          <a href="/weather-dashboard">Dashboard</a>
+          <a href="/conditions">Conditions</a>
+        </div>
+      </div>
+    </div>
 
-  <p><input type='submit'/></p>
-</form>
+    <form action="/conditions/<%= @condition.id %>" method="post">
+      <div class = "input-forms">
+        <input type="hidden" name="_method" value="PUT" />
+
+        <p><input type='date' name='condition[date]' value="<%= @condition.date %>"/></p>
+        <p class = "input-describe">Max Temperature:</p>
+        <p><input type='float' name='condition[max_temperature_f]' value="<%= @condition.max_temperature_f %>"/></p>
+        <p class = "input-describe">Min Temperature:</p>
+        <p><input type='float' name='condition[min_temperature_f]' value="<%= @condition.min_temperature_f %>"/></p>
+        <p class = "input-describe">Mean Temperature:</p>
+        <p><input type='float' name='condition[mean_temperature_f]' value="<%= @condition.mean_temperature_f %>"/></p>
+        <p class = "input-describe">Mean Humidity:</p>
+        <p><input type='float' name='condition[mean_humidity]' value="<%= @condition.mean_humidity %>"/></p>
+        <p class = "input-describe">Mean Visibility:</p>
+        <p><input type='float' name='condition[mean_visibility_miles]' value="<%= @condition.mean_visibility_miles %>"/></p>
+        <p class = "input-describe">Mean Wind Speed:</p>
+        <p><input type='float' name='condition[mean_wind_speed_mph]' value="<%= @condition.mean_wind_speed_mph %>"/></p>
+        <p class = "input-describe">Precipitation:</p>
+        <p><input type='float' name='condition[precipitation_inches]' value="<%= @condition.precipitation_inches %>"/></p>
+      </div>
+      <div class = "create-button">
+        <p><input class = "button" type='submit' value = "Edit"/></p>
+      </div>
+    </form>
+  </body>
+</html>

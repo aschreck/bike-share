@@ -1,5 +1,12 @@
-body {
+body.new-page {
   background-image: url('/images/bridge.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+body.edit-page {
+  background-image: url('/images/clouds.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -145,4 +152,8 @@ p {
 .button:hover {
   background-color: #484848;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.input-describe {
+  font-family: 'Open Sans', sans-serif;
 }
