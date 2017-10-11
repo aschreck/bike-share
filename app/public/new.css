@@ -1,5 +1,5 @@
 body {
-  background-image: url('/images/clouds.jpg');
+  background-image: url('/images/bridge.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -65,7 +65,7 @@ body {
 }
 
 input[type=float], select {
-  width: 17%;
+  width: 188px;
   padding: 16px;
   margin: -1px 0;
   display: inline-block;
@@ -74,8 +74,12 @@ input[type=float], select {
   box-sizing: border-box;
 }
 
+input {
+  font-size: 16px;
+}
+
 input[type=date] {
-  width: 17%;
+  width: 188px;
   padding: 16px;
   margin: -1px 0;
   display: inline-block;
@@ -92,8 +96,8 @@ input[type=date] {
 }
 
 p {
-  margin: 9px;
-  opacity: .7;
+  margin: 8px;
+  opacity: .9;
 }
 
 .button {
@@ -109,10 +113,10 @@ p {
 }
 
 .create-button {
-  padding-left: 77px;
+  padding-left: 91px;
 }
 
 .button:hover {
-  background-color: #b7babf;
+  background-color: #484848;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
