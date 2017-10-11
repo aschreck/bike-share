@@ -57,6 +57,6 @@ class Seed
 end
 
 
-Seed.station
+Seed.station 
 Seed.trip
 Seed.condition
