@@ -68,7 +68,7 @@ class Condition < ActiveRecord::Base
   end 
 
   def self.trips_in_wind_speed_range(ws_range)
-    where(mean_wind_speed_mph: (ws_range...(ws_range + 0.5)))	
+    where(mean_wind_speed_mph: (ws_range...(ws_range + 4.0)))	
       .joins(:trips)
       .select("conditions.*, count(trips.id) AS trip_count")
       .group("conditions.id")
