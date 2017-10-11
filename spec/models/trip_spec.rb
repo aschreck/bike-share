@@ -487,6 +487,6 @@ describe Trip do
         expect(Trip.slowest_day).to eq(Date.strptime("1/6/2017", "%m/%d/%Y"))
       end
     end
-    
+
   end
 end
