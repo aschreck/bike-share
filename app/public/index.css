@@ -84,13 +84,13 @@ a {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  padding-top: 26px;
-  padding-right: 29px;
 }
 
 .dropdown {
   position: relative;
   opacity: 1;
+  padding-top: 14px;
+  padding-right: 38px;
 }
 
 .dropdown-content {
