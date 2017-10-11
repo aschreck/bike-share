@@ -156,4 +156,6 @@ p {
 
 .input-describe {
   font-family: 'Open Sans', sans-serif;
+  font-size: 19px;
+  opacity: .9;
 }
