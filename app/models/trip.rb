@@ -93,7 +93,6 @@ class Trip <ActiveRecord::Base
   end
 
   def self.subscription_types_and_info
-#TODO could prob use a reduce method here instead
 		subscription_data = {}
     subscription_types_counts.each do |type, count|
       pct_info = ((count.to_f/all.count) * 100).truncate
