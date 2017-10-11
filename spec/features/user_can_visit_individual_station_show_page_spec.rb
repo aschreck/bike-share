@@ -15,6 +15,5 @@ describe "When a user clicks on station name within station index" do
     expect(page).to have_button("edit")
     expect(page).to have_button("delete")
     expect(page).to have_link("All Stations")
-    expect(page).to have_link("BikeShare")
   end
 end
