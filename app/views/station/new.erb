@@ -1,13 +1,33 @@
-<nav>
-  <a href="/">Dashboard</a>
-  <a href="/stations">All Stations</a>
-</nav>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "/new.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
 
-<form action="/stations" method="post">
-  <h1>Enter Station Information</h1>
-  <p>Name: <input type='text' name='station[name]'/></p>
-  <p>Dock Count: <input type='integer' name='station[dock_count]'/></p>
-  <p>City: <input type='text' name='station[city]'/></p>
-  <p>Installation Date: <input type='date' name='station[installation_date]'/></p>
-  <p><input type='submit'/></p>
-</form>
+  <body>
+    <div class = "firstline">
+      <h1 class = "firstline-title">New Station</h1>
+      <div class="dropdown">
+        <button class="dropbtn">More</button>
+        <div class="dropdown-content">
+          <a href="/">Home</a>
+          <a href="/station-dashboard">Dashboard</a>
+          <a href="/stations">Stations</a>
+        </div>
+      </div>
+    </div>
+
+    <form action="/stations" method="post">
+      <div class = "input-forms">
+        <p><input type='text' name='station[name]' placeholder="Name"/></p>
+        <p><input type='integer' name='station[dock_count]' placeholder="Dock Count"/></p>
+        <p><input type='text' name='station[city]' placeholder="City"/></p>
+        <p><input type='date' name='station[installation_date]'/></p>
+        </div>
+        <div class = "create-button">
+          <p><input class = "button" type='submit' value='Create'/></p>
+        </div>
+    </form>
+  </body>
+</html>
