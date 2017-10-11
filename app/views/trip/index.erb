@@ -22,7 +22,7 @@
       <% @trips.each do |trip|%>
         <a href = "/trips/<%=trip.id %>">
         <div class = "condition">
-      	  <h3 class = "date"><%=trip.start_date%> to <%= trip.end_date%></a></h3>
+      	  <h3 class = "date"><%=trip.start_date%> to <%= trip.end_date%></h3>
         	<p class = "id"><span>Duration:</span> <%=trip.duration %> seconds</p>
         	<p><span>Stations:</span> <%=trip.start_station_name%> -> <%= trip.end_station_name%></p>
         	<p><span>Bike ID:</span> <%=trip.bike_id%></p>
