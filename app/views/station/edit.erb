@@ -1,9 +1,38 @@
-<form action="/stations/<%= @station.id %>" method="post">
-  <h1>Edit</h1>
-  <input type="hidden" name="_method" value="PUT" />
-  <p>Name: <input type='text' name='station[name]' value="<%= @station.name %>"/></p>
-  <p>Dock Count: <input type='integer' name='station[dock_count]' value="<%= @station.dock_count %>"/></p>
-  <p>City: <input type='text' name='station[city]' value="<%= @station.city %>"/></p>
-  <p>Installation Date: <input type='date' name='station[installation_date]' value="<%= @station.installation_date %>"/></p>
-  <p><input type='submit' value='submit'/></p>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "/new.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
+
+  <body class = "edit-page">
+    <div class = "firstline">
+      <h1 class = "firstline-title">Edit Station</h1>
+      <div class="dropdown">
+        <button class="dropbtn">More</button>
+        <div class="dropdown-content">
+          <a href="/">Home</a>
+          <a href="/station-dashboard">Dashboard</a>
+          <a href="/stations">Stations</a>
+        </div>
+      </div>
+    </div>
+
+    <form action="/stations/<%= @station.id %>" method="post">
+      <div class = "input-forms">
+        <input type="hidden" name="_method" value="PUT" />
+        <p class = "input-describe">Name:</p>
+        <p><input type='text' name='station[name]' value="<%= @station.name %>"/></p>
+        <p class = "input-describe">Dock Count:</p>
+        <p><input type='integer' name='station[dock_count]' value="<%= @station.dock_count %>"/></p>
+        <p class = "input-describe">City:</p>
+        <p><input type='text' name='station[city]' value="<%= @station.city %>"/></p>
+        <p class = "input-describe">Installation Date:</p>
+        <p><input type='date' name='station[installation_date]' value="<%= @station.installation_date %>"/></p>
+      </div>
+      <div class = "create-button">
+        <p><input class = "button" type='submit' value='Edit'/></p>
+      </div>
+    </form>
+  </body>
+</html>
