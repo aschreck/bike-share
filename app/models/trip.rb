@@ -65,7 +65,7 @@ class Trip <ActiveRecord::Base
   end
 
   def self.station_and_departures
-    group(:start_station_name).count
+    # group(:start_station_name).count
   end
 
   def self.most_ridden_bike
