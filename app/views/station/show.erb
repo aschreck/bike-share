@@ -1,24 +1,52 @@
-<a href="/stations">All Stations</a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "/show.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
 
-<h1><%= @station.name %></h1>
+  <body>
+    <div class = "firstline">
+      <h1 class = "firstline-title"><%= @station.name %></h1>
 
-<p>Dock Count: <%= @station.dock_count %></p>
-<p>City: <%= @station.city %></p>
-<p>Installation Date: <%= @station.installation_date %></p></br>
+      <div class="dropdown">
+        <button class="dropbtn">More</button>
+        <div class="dropdown-content">
+          <a href="/">Home</a>
+          <a href="/stations">Stations</a>
+          <a href="/stations/new">New</a>
+          <a href="/station-dashboard">Dashboard</a>
+        </div>
+      </div>
+    </div>
 
-<p>Number of departures: <%= @station.start_ride_count %></p>
-<p>Number of arrivals: <%= @station.end_ride_count %></p>
-<p>Most Frequent Destination: <%= @station.most_frequent_destination %></p>
-<p>Most Frequent Origin: <%= @station.most_frequent_origin %></p>
-<p>Most Popular Date: <%= @station.most_popular_date %></p>
-<p>Most Popular Zip Code: <%= @station.most_popular_zip %></p>
-<p>Most Used Bike ID: <%= @station.most_frequent_bike_id %></p>
+    <div class = "content">
+      <div class = "details">
+        <p><span>Dock Count:</span> <%= @station.dock_count %></p>
+        <p><span>City:</span> <%= @station.city %></p>
+        <p><span>Installation Date:</span> <%= @station.installation_date %></p>
+        <hr>
+        <p><span>Number of departures:</span> <%= @station.start_ride_count %></p>
+        <p><span>Number of arrivals:</span> <%= @station.end_ride_count %></p>
+        <p><span>Most Frequent Destination:</span> <%= @station.most_frequent_destination %></p>
+        <p><span>Most Frequent Origin:</span> <%= @station.most_frequent_origin %></p>
+        <p><span>Most Popular Date:</span> <%= @station.most_popular_date %></p>
+        <p><span>Most Popular Zip Code:</span> <%= @station.most_popular_zip %></p>
+        <p><span>Most Used Bike ID:</span> <%= @station.most_frequent_bike_id %></p>
 
-<form action="/stations/<%= @station.id %>/edit" method="GET">
-  <input type="hidden" name="_method" value="EDIT">
-  <input type="submit" value="edit"/>
-</form>
-<form action="/stations/<%= @station.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="delete"/>
-</form>
+
+        <div class = "buttons">
+          <form action="/stations/<%= @station.id %>/edit" method="GET">
+            <input type="hidden" name="_method" value="EDIT">
+            <input type="submit" value="Edit"/>
+          </form>
+
+          <form action="/stations/<%= @station.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

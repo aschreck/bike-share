@@ -25,7 +25,7 @@
         <h3 class = "date"><%= station.name %></h3>
         <p class = "id"><span>Dock Count:</span> <%= station.dock_count %> Docks</p>
         <p><span>City:</span> <%= station.city %></p>
-        <p><span>Installation Date:</span> <%= station.installation_date %></p>
+        <p><span>Installation Date:</span> <%= station.installation_date.strftime("%B %d, %Y") %></p>
         <div class = "buttons">
           <form action="/stations/<%= station.id %>/edit" method="GET">
             <input type="hidden" name="_method" value="EDIT">
