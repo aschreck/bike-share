@@ -41,17 +41,17 @@ class Station < ActiveRecord::Base
   end
 
   def most_frequent_destination
-    # trips = Trip.where(start_station_id: station_id)
-    # return "N/A" if trips.empty?
-    # station = trips.group(:end_station_id).order("count_all DESC").limit(1).count
-    # Station.find_by(station_id: station.keys.first).name
+    trips = Trip.where(start_station_id: station_id)
+    return "N/A" if trips.empty?
+    station = trips.group(:end_station_id).order("count_all DESC").limit(1).count
+    Station.find_by(station_id: station.keys.first).name
   end
 
   def most_frequent_origin
-    # trips = Trip.where(end_station_id: station_id)
-    # return "N/A" if trips.empty?
-    # station = trips.group(:start_station_id).order("count_all DESC").limit(1).count
-    # Station.find_by(station_id: station.keys.first).name
+    trips = Trip.where(end_station_id: station_id)
+    return "N/A" if trips.empty?
+    station = trips.group(:start_station_id).order("count_all DESC").limit(1).count
+    Station.find_by(station_id: station.keys.first).name
   end
 
   def most_popular_date

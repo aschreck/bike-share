@@ -222,5 +222,88 @@ describe Station do
       end
     end
 
+    describe '#most_frequent_destination' do
+      it "for trips starting at this station, returns the name of the station that's the most frequent destination" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "1",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Station.create({name: "Union Station",
+                        station_id: "3",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Trip.create({duration: 2,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "1",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "Union Station",
+                     end_station_id: "3",
+                     bike_id: 215,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        Trip.create({duration: 98,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "12",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "16th & Larimer",
+                     end_station_id: "1",
+                     bike_id: 989,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        station = Station.first
+
+        expect(station.most_frequent_destination).to eq("Union Station")
+      end
+    end
+
+    describe '#most_frequent_destination' do
+      it "for trips ending at this station, returns the name of the station that's the most frequent origin" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "1",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Station.create({name: "Union Station",
+                        station_id: "3",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Trip.create({duration: 2,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "1",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "Union Station",
+                     end_station_id: "3",
+                     bike_id: 215,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        Trip.create({duration: 98,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "3",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "16th & Larimer",
+                     end_station_id: "1",
+                     bike_id: 989,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        station = Station.first
+
+        expect(station.most_frequent_origin).to eq("Union Station")
+      end
+    end
   end
 end
