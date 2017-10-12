@@ -147,6 +147,80 @@ describe Station do
         expect(Station.earliest_installed).to eq(["San Jose Diridon Caltrain Station"])
       end
     end
-    
+  end
+
+  describe "Instance Methods" do
+    describe '#start_ride_count' do
+      it "returns the station's number of trips started there" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "1",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Trip.create({duration: 2,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "1",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "Union Station",
+                     end_station_id: "3",
+                     bike_id: 215,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        Trip.create({duration: 98,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "12",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "16th & Larimer",
+                     end_station_id: "1",
+                     bike_id: 989,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        station = Station.first
+
+        expect(station.start_ride_count).to eq(1)
+      end
+    end
+
+    describe '#end_ride_count' do
+      it "returns the station's number of trips ending there" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "1",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Trip.create({duration: 2,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "1",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "Union Station",
+                     end_station_id: "3",
+                     bike_id: 215,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        Trip.create({duration: 98,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "12",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "16th & Larimer",
+                     end_station_id: "1",
+                     bike_id: 989,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        station = Station.first
+
+        expect(station.end_ride_count).to eq(1)
+      end
+    end
+
   end
 end

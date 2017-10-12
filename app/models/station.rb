@@ -33,11 +33,11 @@ class Station < ActiveRecord::Base
   end
 
   def start_ride_count
-    # Trip.where(start_station_id: station_id).count
+    Trip.where(start_station_id: station_id).count
   end
 
   def end_ride_count
-    # Trip.where(end_station_id: station_id).count
+    Trip.where(end_station_id: station_id).count
   end
 
   def most_frequent_destination
