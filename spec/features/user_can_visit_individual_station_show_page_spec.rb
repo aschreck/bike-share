@@ -12,8 +12,8 @@ describe "When a user clicks on station name within station index" do
     expect(page).to have_content("Diridon Caltrain")
     expect(page).to have_content(27)
     expect(page).to have_content("2013-06-08")
-    expect(page).to have_button("edit")
-    expect(page).to have_button("delete")
-    expect(page).to have_link("All Stations")
+    expect(page).to have_button("Edit")
+    expect(page).to have_button("Delete")
+    expect(page).to have_link("Stations")
   end
 end

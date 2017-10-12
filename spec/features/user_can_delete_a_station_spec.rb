@@ -22,7 +22,7 @@ describe "When a user visits a station's show page and clicks delete" do
                     installation_date: "8/6/2013"
                     })
     visit '/stations/1'
-    click_button 'delete'
+    click_button 'Delete'
 
     expect(Station.count).to eq(0)
   end

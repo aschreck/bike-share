@@ -39,6 +39,6 @@ describe "When a user visits '/trips-dashboard'" do
     expect(page).to have_content("Average Ride")
     expect(page).to have_content(50)
     expect(page).to have_content("Subscriber")
-    expect(page).to have_content(Date.strptime("8/6/2016", "%m/%d/%Y"))
+    expect(page).to have_content(Date.strptime("8/6/2016", "%m/%d/%Y").strftime("%B %d, %Y"))
   end
 end
