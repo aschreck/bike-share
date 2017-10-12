@@ -55,21 +55,21 @@ class Station < ActiveRecord::Base
   end
 
   def most_popular_date
-    # trips = Trip.where(start_station_id: station_id)
-    # return "N/A" if trips.empty?
-    # date = trips.group(:start_date).order("count_all DESC").limit(1).count.keys.first
-    # date.strftime("%B %d, %Y")
+    trips = Trip.where(start_station_id: station_id)
+    return "N/A" if trips.empty?
+    date = trips.group(:start_date).order("count_all DESC").limit(1).count.keys.first
+    date.strftime("%B %d, %Y")
   end
 
   def most_popular_zip
-    # trips = Trip.where(start_station_id: station_id)
-    # return "N/A" if trips.empty?
-    # trips.group(:zip_code).order("count_all DESC").limit(1).count.keys.first
+    trips = Trip.where(start_station_id: station_id)
+    return "N/A" if trips.empty?
+    trips.group(:zip_code).order("count_all DESC").limit(1).count.keys.first
   end
 
   def most_frequent_bike_id
-    # trips = Trip.where(start_station_id: station_id)
-    # return "N/A" if trips.empty?
-    # trips.group(:bike_id).order("count_all DESC").limit(1).count.keys.first
+    trips = Trip.where(start_station_id: station_id)
+    return "N/A" if trips.empty?
+    trips.group(:bike_id).order("count_all DESC").limit(1).count.keys.first
   end
 end

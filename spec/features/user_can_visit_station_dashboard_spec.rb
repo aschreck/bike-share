@@ -14,9 +14,9 @@ describe "When a user visits '/station-dashboard'" do
                     })
     visit '/station-dashboard'
 
-    # expect(page).to have_content("Total Station Count")
-    # expect(page).to have_content(2)
-    # expect(page).to have_content("Fewest Bikes Available")
-    # expect(page).to have_content(27)
+    expect(page).to have_content("Total Station Count")
+    expect(page).to have_content(2)
+    expect(page).to have_content("Fewest Bikes Available")
+    expect(page).to have_content(27)
   end
 end

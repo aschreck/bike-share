@@ -305,5 +305,131 @@ describe Station do
         expect(station.most_frequent_origin).to eq("Union Station")
       end
     end
+
+    describe '#most_popular_date' do
+      it "returns the most popular trip date for station" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "1",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Station.create({name: "Union Station",
+                        station_id: "3",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Trip.create({duration: 2,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "1",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "Union Station",
+                     end_station_id: "3",
+                     bike_id: 215,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        Trip.create({duration: 98,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "12",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "16th & Larimer",
+                     end_station_id: "1",
+                     bike_id: 989,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        station = Station.first
+
+        expect(station.most_popular_date).to eq(Date.strptime("8/6/2016", "%m/%d/%Y").strftime("%B %d, %Y"))
+      end
+    end
+
+    describe '#most_popular_zip' do
+      it "returns the most popular zipcode from among this station's trips" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "1",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Station.create({name: "Union Station",
+                        station_id: "3",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Trip.create({duration: 2,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "1",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "Union Station",
+                     end_station_id: "3",
+                     bike_id: 215,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        Trip.create({duration: 98,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "12",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "16th & Larimer",
+                     end_station_id: "1",
+                     bike_id: 989,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        station = Station.first
+
+        expect(station.most_popular_zip).to eq(19091)
+      end
+    end
+
+    describe '#most_frequent_bike_id' do
+      it "returns the bike_id that's been used most for trips at this station" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "1",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Station.create({name: "Union Station",
+                        station_id: "3",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Trip.create({duration: 2,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "1",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "Union Station",
+                     end_station_id: "3",
+                     bike_id: 215,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        Trip.create({duration: 98,
+                     start_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     start_station_name: "Union Station",
+                     start_station_id: "12",
+                     end_date: Date.strptime("8/6/2016", "%m/%d/%Y"),
+                     end_station_name: "16th & Larimer",
+                     end_station_id: "1",
+                     bike_id: 989,
+                     subscription_type: "Subscriber",
+                     zip_code: 19091
+                    })
+        station = Station.first
+
+        expect(station.most_frequent_bike_id).to eq(215)
+      end
+    end
   end
 end
