@@ -8,9 +8,9 @@ describe "When a user visits a station's show page, clicks edit button, and subm
                     })
 
     visit '/stations/1'
-    click_button 'edit'
+    click_button 'Edit'
     fill_in "station[name]", with: 'Union Station'
-    click_button 'submit'
+    click_button 'Edit'
 
     expect(Station.first.name).to eq("Union Station")
   end
