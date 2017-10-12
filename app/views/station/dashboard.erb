@@ -28,7 +28,7 @@
         <p><span>Station(s) With Most Available Bikes:</span> <%= @stations.stations_with_max_bikes.join(", ") %></p>
         <p><span>Fewest Bikes Available At A Station:</span> <%= @stations.minimum_by_bikes %></p>
         <p><span>Station(s) With Fewer Available Bikes:</span> <%= @stations.stations_with_min_bikes.join(", ") %></p>
-        <p><span>Most Recently Installed Station:</span> <%= @stations.most_recently_installed[0] %></p>
+        <p><span>Most Recently Installed Station:</span> <%= @stations.most_recently_installed.join(", ") %></p>
         <p><span>Oldest Station:</span> <%= @stations.earliest_installed.join(", ") %></p>
 
       </div>

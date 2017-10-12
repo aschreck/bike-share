@@ -110,5 +110,43 @@ describe Station do
       end
     end
 
+    describe ".most_recently_installed" do
+      it "returns an array of the station name(s) with the most recent installation date" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "10",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Station.create({name: "Union Station",
+                        station_id: "21",
+                        dock_count: 31,
+                        city: "Denver",
+                        installation_date: "10/10/2017"
+                        })
+
+        expect(Station.most_recently_installed).to eq(["Union Station"])
+      end
+    end
+
+    describe ".earliest_installed" do
+      it "returns an array of the station name(s) with the earliest intallation date" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "10",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Station.create({name: "Union Station",
+                        station_id: "21",
+                        dock_count: 31,
+                        city: "Denver",
+                        installation_date: "10/10/2017"
+                        })
+
+        expect(Station.earliest_installed).to eq(["San Jose Diridon Caltrain Station"])
+      end
+    end
+    
   end
 end
