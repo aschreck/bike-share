@@ -2,6 +2,13 @@ span {
   font-weight: bold;
 }
 
+body {
+  background-image: url('/images/bridge_bike.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .firstline {
   color: #454545;
   display: flex;
@@ -66,4 +73,18 @@ span {
 
 .details {
   font-family: 'Open Sans', sans-serif;
+  background: lightgrey;
+  border-radius: 4px;
+  padding: 10px;
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: .9;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding-top: 38px;
 }
