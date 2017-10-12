@@ -2,12 +2,7 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 
 class Trip <ActiveRecord::Base
-  validates :bike_id, uniqueness: { scope: [:duration,
-                                          :start_date,
-                                          :start_station_name,
-                                          :end_date,
-                                          :end_station_name,
-                                          :subscription_type] }
+  validates :id, uniqueness: true
 
   validates_presence_of :duration,
                         :start_date,

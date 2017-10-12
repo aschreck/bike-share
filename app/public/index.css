@@ -6,8 +6,7 @@ body {
   background-image: url('/images/sf.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 0% -148%;
-  box-shadow: inset -500px 0 50px 10px #FFF;
+  background-size: cover;
 }
 
 p {
