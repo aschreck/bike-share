@@ -1,10 +1,37 @@
-<ul>
-  <li> Total Station Count: <%= @stations.count %></li>
-  <li> Average Bikes Available Per Station: <%= @stations.average_available_bikes %></li>
-  <li> Most Bikes Available At A Station: <%= @stations.maximum_by_bikes %></li>
-  <li> Station(s) With Most Available Bikes: <%= @stations.stations_with_max_bikes %></li>
-  <li> Fewest Bikes Available At A Station: <%= @stations.minimum_by_bikes %></li>
-  <li> Station(s) With Fewer Available Bikes: <%= @stations.stations_with_min_bikes %></li>
-  <li> Most Recently Installed Station: <%= @stations.most_recently_installed %></li>
-  <li> Oldest Station: <%= @stations.earliest_installed %></li>
-</ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "/db.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class = "firstline">
+      <h1 class = "firstline-title">Station Dashboard</h1>
+        <div class="dropdown">
+          <button class="dropbtn">More</button>
+          <div class="dropdown-content">
+            <a href="/">Home</a>
+            <a href="/stations">Stations</a>
+            <a href="/stations/new">New</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class = "content">
+      <div class = "details">
+
+        <p><span>Total Station Count:</span> <%= @stations.count %></p>
+        <p><span>Average Bikes Available Per Station:</span> <%= @stations.average_available_bikes.round %></p>
+        <p><span>Most Bikes Available At A Station:</span> <%= @stations.maximum_by_bikes %></p>
+        <p><span>Station(s) With Most Available Bikes:</span> <%= @stations.stations_with_max_bikes.join(", ") %></p>
+        <p><span>Fewest Bikes Available At A Station:</span> <%= @stations.minimum_by_bikes %></p>
+        <p><span>Station(s) With Fewer Available Bikes:</span> <%= @stations.stations_with_min_bikes.join(", ") %></p>
+        <p><span>Most Recently Installed Station:</span> <%= @stations.most_recently_installed[0] %></p>
+        <p><span>Oldest Station:</span> <%= @stations.earliest_installed.join(", ") %></p>
+      </div>
+    </div>
+
+  </body>
+</html>
