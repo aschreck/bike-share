@@ -72,5 +72,43 @@ describe Station do
       end
     end
 
+    describe ".minimum_by_bikes" do
+      it "returns the min dock count" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "10",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Station.create({name: "Union Station",
+                        station_id: "21",
+                        dock_count: 31,
+                        city: "Denver",
+                        installation_date: "10/10/2017"
+                        })
+
+        expect(Station.minimum_by_bikes).to eq(27)
+      end
+    end
+
+    describe ".stations_with_min_bikes" do
+      it "returns array of station(s) with least bikes" do
+        Station.create({name: "San Jose Diridon Caltrain Station",
+                        station_id: "10",
+                        dock_count: 27,
+                        city: "San Jose",
+                        installation_date: "8/6/2013"
+                        })
+        Station.create({name: "Union Station",
+                        station_id: "21",
+                        dock_count: 31,
+                        city: "Denver",
+                        installation_date: "10/10/2017"
+                        })
+
+        expect(Station.stations_with_min_bikes).to eq(["San Jose Diridon Caltrain Station"])
+      end
+    end
+
   end
 end
