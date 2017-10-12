@@ -93,3 +93,11 @@ body {
 .list-title {
   text-decoration: underline;
 }
+
+.columns {
+  display: flex;
+}
+
+.column-2 {
+  padding-left: 50px;
+}

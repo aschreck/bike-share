@@ -33,17 +33,17 @@
         <p><span>Slowest Day:</span> <%= @trips.slowest_day.strftime("%B %d, %Y") %></p>
         <p class = "list-title"><span>User Subscription Types</span></p>
           <ul><% @trips.subscription_types_and_info.each_pair do |type, info| %>
-            <li><span><%= type %></span>: <%= info[:count] %> subscriptions (<%= info[:pct] %>% of business)</li>
+            <li><%= type %>: <%= info[:count] %> subscriptions (<%= info[:pct] %>% of business)</li>
             <% end %>
           </ul>
         <p class = "list-title"><span>Rides Breakdown by Year/Month</span></p>
           <ul>
             <% @trips.month_year_breakdown.each do |entry| %>
-            <li><span><%= entry[0] %></span>: <%= entry[1] %></li>
+            <li><%= entry[0] %>: <%= entry[1] %></li>
             <% end %>
           </ul>
           <% @trips.year_breakdown.each do |entry| %>
-          <p><span><%= entry[0] %></span>: <%= entry[1] %></p>
+            <%= entry[0] %>: <%= entry[1] %></br>
           <% end %>
 
       </div>
