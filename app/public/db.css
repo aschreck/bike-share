@@ -87,4 +87,9 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 38px;
+  padding-bottom: 130px;
+}
+
+.list-title {
+  text-decoration: underline;
 }

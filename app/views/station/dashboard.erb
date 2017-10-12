@@ -30,6 +30,7 @@
         <p><span>Station(s) With Fewer Available Bikes:</span> <%= @stations.stations_with_min_bikes.join(", ") %></p>
         <p><span>Most Recently Installed Station:</span> <%= @stations.most_recently_installed[0] %></p>
         <p><span>Oldest Station:</span> <%= @stations.earliest_installed.join(", ") %></p>
+
       </div>
     </div>
 
