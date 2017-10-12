@@ -2,14 +2,7 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 
 class Trip <ActiveRecord::Base
-  # belongs_to :start_station_id, class_name: 'Station', foreign_key: 'station_id'
-  # belongs_to :end_station_id, class_name: 'Station', foreign_key: 'station_id'
-  validates :bike_id, uniqueness: { scope: [:duration,
-                                          :start_date,
-                                          :start_station_name,
-                                          :end_date,
-                                          :end_station_name,
-                                          :subscription_type] }
+  validates :id, uniqueness: true
 
   validates_presence_of :duration,
                         :start_date,
@@ -60,10 +53,6 @@ class Trip <ActiveRecord::Base
     sorted.map do |i|
       [i.first.strftime("%Y"), i.last]
     end
-  end
-
-  def self.station_and_departures
-    # group(:start_station_name).count
   end
 
   def self.most_ridden_bike
