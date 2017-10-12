@@ -1,16 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "/show.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
 
+  <body>
+    <div class = "firstline">
+      <h1 class = "firstline-title"><%=@trip.start_date.strftime("%B %d, %Y") %> - <%= @trip.end_date.strftime("%B %d, %Y") %></h1>
 
-<a href="/trips">All Trips</a>
-  <h3>Dates: <%=@trip.start_date%> to <%= @trip.end_date%></h3> 
-  <p>Duration: <%=@trip.duration %> seconds</p>
-	<p>Stations: <%=@trip.start_station_name%> -> <%= @trip.end_station_name%></p>
-	<p>Bike ID: <%=@trip.bike_id%></p>
-	<p>Subscription Type: <%=@trip.subscription_type%></p>
-<form action="/trips/<%= @trip.id %>/edit" method="GET">
-  <input type="hidden" name="_method" value="EDIT">
-  <input type="submit" value="edit"/>
-</form>
-<form action="/trips/<%= @trip.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="delete"/>
-</form>
+      <div class="dropdown">
+        <button class="dropbtn">More</button>
+        <div class="dropdown-content">
+          <a href="/">Home</a>
+          <a href="/trips">Trips</a>
+          <a href="/trips/new">New</a>
+          <a href="/trips-dashboard">Dashboard</a>
+        </div>
+      </div>
+    </div>
+
+    <div class = "content">
+      <div class = "details">
+        <p><span>Duration:</span> <%=@trip.duration %> seconds</p>
+        <p><span>Stations:</span> <%=@trip.start_station_name%> -> <%= @trip.end_station_name%></p>
+      	<p><span>Bike ID:</span> <%=@trip.bike_id%></p>
+      	<p><span>Subscription Type:</span> <%=@trip.subscription_type%></p>
+
+        <div class = "buttons">
+          <form action="/trips/<%= @trip.id %>/edit" method="GET">
+            <input type="hidden" name="_method" value="EDIT">
+            <input type="submit" value="edit"/>
+          </form>
+
+          <form action="/trips/<%= @trip.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="delete"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

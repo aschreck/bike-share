@@ -1,5 +1,9 @@
+span {
+  font-weight: bold;
+}
+
 body {
-  background-image: url('/images/road.jpg');
+  background-image: url('/images/bridge_bike.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -13,7 +17,7 @@ body {
 }
 
 .firstline-title {
-  margin-left: 50px;
+  margin-left: 60px;
 }
 
 .dropbtn {
@@ -68,36 +72,32 @@ body {
 }
 
 .details {
-  width: 500px;
-  margin-top: 7px;
-  background-color: lightgrey;
-  border-radius: 4px;
   font-family: 'Open Sans', sans-serif;
+  background: lightgrey;
+  border-radius: 4px;
+  padding: 10px;
+  width: 750px;
   display: flex;
   flex-direction: column;
   align-items: center;
   opacity: .9;
 }
 
-span {
-  font-weight: bold;
-}
-
-hr {
-   width: 110px;
-}
-
-.buttons:hover {
-  cursor: pointer;
-}
-
-.buttons {
-  display: inline-flex;
-  justify-content: center;
-  margin-bottom: 18px;
-}
-
 .content {
   display: flex;
   justify-content: center;
+  padding-top: 38px;
+  padding-bottom: 130px;
+}
+
+.list-title {
+  text-decoration: underline;
+}
+
+.columns {
+  display: flex;
+}
+
+.column-2 {
+  padding-left: 50px;
 }

@@ -1,47 +1,79 @@
-<ul>
-	<h1>Rides by Temperature Increment:</h1>
-	<%	Condition.total_breakout_temps.each do |range, data| %>
-		<li>Range: <%=range%>-<%=range + 10%></li>
-		<li>Average Number of Rides: <%=data[:avg]%></li> 
-	<li>Highest Number of Rides <%=data[:max]%></li>
-	<li>Lowest Number of Rides <%=data[:min]%></li>
-	<% end %>
-	<p></<p>
-</ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "/db.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
+  <body>
 
-<ul> 
-	<h1>Rides by Precipatation Increment: </h2>
-	<%Condition.total_breakout_precips.each do |range, data| %>
-		<li>Range: <%=range%>-<%=range + 0.5%></li>
-		<li>Average Number of Rides: <%=data[:avg]%></li> 
-	<li>Highest Number of Rides <%=data[:max]%></li>
-	<li>Lowest Number of Rides <%=data[:min]%></li>
-	<% end %>
-	<p></<p>
-</ul>
+    <div class = "firstline">
+      <h1 class = "firstline-title">Weather Dashboard</h1>
+        <div class="dropdown">
+          <button class="dropbtn">More</button>
+          <div class="dropdown-content">
+            <a href="/">Home</a>
+            <a href="/conditions">Conditions</a>
+            <a href="/conditions/new">New</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<ul> 
-	<h1>Rides by Wind Speed Increment: </h2>
-	<%Condition.total_breakout_wind_speeds.each do |range, data| %>
-		<li>Range: <%=range%>-<%=range + 4.0%></li>
-		<li>Average Number of Rides: <%=data[:avg]%></li> 
-	<li>Highest Number of Rides <%=data[:max]%></li>
-	<li>Lowest Number of Rides <%=data[:min]%></li>
-	<% end %>
-	<p></<p>
-</ul>
+    <div class = "content">
+      <div class = "details">
 
-<ul> 
-	<h1>Rides by Visibility Increment: </h2>
-	<%Condition.total_breakout_visibility.each do |range, data| %>
-		<li>Range: <%=range%>-<%=range + 4.0%></li>
-		<li>Average Number of Rides: <%=data[:avg]%></li> 
-	<li>Highest Number of Rides <%=data[:max]%></li>
-	<li>Lowest Number of Rides <%=data[:min]%></li>
-	<% end %>
-	<p></<p>
-</ul>
-<% days = Condition.most_and_least_traveled %>
-<h1> The most traveled day was: <%= days[0]%> </h1>
-<h1> The least traveled day was: <%=days[1]%> </h1>
+				<% days = Condition.most_and_least_traveled %>
+				<p><span>Most Traveled Day:</span> <%= days[0].strftime("%B %d, %Y") %> </p>
+				<p><span>Least Traveled Day:</span> <%= days[1].strftime("%B %d, %Y") %> </p>
 
+				<div class = "columns">
+					<div class = "column-1">
+						<p><span>Rides by Temperature Increment</span></p>
+						<ul>
+							<% Condition.total_breakout_temps.each do |range, data| %>
+								<p class = "list-title"><%=range%>-<%=range + 10%> degrees</p>
+								<li>Average Number of Rides: <%=data[:avg]%></li>
+								<li>Highest Number of Rides: <%=data[:max]%></li>
+								<li>Lowest Number of Rides: <%=data[:min]%></li>
+							<% end %>
+						</ul>
+
+						<p><span>Rides by Precipatation Increment</span></p>
+						<ul>
+							<% Condition.total_breakout_precips.each do |range, data| %>
+								<p class = "list-title"><%=range%>-<%=range + 0.5%> inches</p>
+								<li>Average Number of Rides: <%=data[:avg]%></li>
+								<li>Highest Number of Rides: <%=data[:max]%></li>
+								<li>Lowest Number of Rides: <%=data[:min]%></li>
+							<% end %>
+						</ul>
+					</div>
+
+					<div class = "column-2">
+						<p><span>Rides by Wind Speed Increment</span></p>
+						<ul>
+							<% Condition.total_breakout_wind_speeds.each do |range, data| %>
+								<p class = "list-title"><%=range%>-<%=range + 4.0%> MPH</p>
+								<li>Average Number of Rides: <%=data[:avg]%></li>
+								<li>Highest Number of Rides: <%=data[:max]%></li>
+								<li>Lowest Number of Rides: <%=data[:min]%></li>
+							<% end %>
+						</ul>
+
+						<p><span>Rides by Visibility Increment</span></p>
+						<ul>
+							<%Condition.total_breakout_visibility.each do |range, data| %>
+								<p class = "list-title"><%=range%>-<%=range + 4.0%> miles</p>
+								<li>Average Number of Rides: <%=data[:avg]%></li>
+								<li>Highest Number of Rides: <%=data[:max]%></li>
+								<li>Lowest Number of Rides: <%=data[:min]%></li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+</html>
